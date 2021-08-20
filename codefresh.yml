@@ -20,7 +20,7 @@ steps:
   UpdatePipelines:
     title: "Create or Update pipelines"
     type: "pipeline-trigger-merge"
-    working_directory: '${{Clone}}/pipelines'
+    working_directory: '${{Clone}}/pipeline-specs'
     scale:
       pipeline-factory:
         arguments:
