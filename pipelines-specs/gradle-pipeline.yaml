@@ -1,0 +1,40 @@
+version: '1.0'
+kind: pipeline
+metadata:
+  name: Jesse-scratch/gradle-demo
+  project: demo
+  labels:
+    tags:
+      - generated
+      - java
+  description: pipeline description here
+  isPublic: false
+  template:
+    isTemplate: false
+spec:
+  triggers:
+  - type: git
+    name: git-push
+    repo: jcantosz/gradle-sample-app
+    events:
+      - push.heads
+    pullRequestAllowForkEvents: false
+    commentRegex: /.*/gi
+    branchRegex: /.*/gi
+    branchRegexInput: regex
+    provider: github-jesse
+    context: github-jesse
+    modifiedFilesGlob: pipelines/**
+  variables:
+    - key: SOMETHING
+      value: else
+      encrypted: false
+  contexts: []
+  specTemplate:
+    location: git
+    context: github # if not specified will use the default git-context
+    repo: jcantosz/gradle-sample-app
+    path: codefresh.yml
+    revision: master # can be a branch or commit. if not specified will use CF_BRANCH variable value
+  steps: {}
+  stages: []
