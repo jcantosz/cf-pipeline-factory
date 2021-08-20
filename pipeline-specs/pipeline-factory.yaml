@@ -6,7 +6,6 @@ metadata:
   labels:
     tags:
       - generated
-      - java
   description: pipeline description here
   isPublic: false
   template:
@@ -30,6 +29,7 @@ spec:
         resetVolume: false
       verified: true
       context: github-jesse
+      modifiedFilesGlob: 'pipeline-specs/**'
       contexts: []
       variables: []
   contexts: []
