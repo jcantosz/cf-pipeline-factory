@@ -2,7 +2,7 @@ version: '1.0'
 kind: pipeline
 metadata:
   name: Jesse-scratch/pipeline-factory
-  project: demo
+  project: Jesse-scratch
   labels:
     tags:
       - generated
