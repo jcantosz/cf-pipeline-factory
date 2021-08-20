@@ -20,9 +20,8 @@ spec:
         - push.heads
       pullRequestAllowForkEvents: false
       commentRegex: /.*/gi
-      branchRegex: /.*/gi
+      branchRegex: /main/gi
       branchRegexInput: regex
-      modifiedFilesGlob: '{pipelines/**}'
       provider: github
       disabled: false
       options:
