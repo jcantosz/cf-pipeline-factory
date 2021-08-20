@@ -13,24 +13,32 @@ metadata:
     isTemplate: false
 spec:
   triggers:
-  - type: git
-    name: git-push
-    repo: jcantosz/cf-pipeline-factory
-    events:
-      - push.heads
-    pullRequestAllowForkEvents: false
-    commentRegex: /.*/gi
-    branchRegex: /.*/gi
-    branchRegexInput: regex
-    provider: github-jesse
-    context: github-jesse
-    modifiedFilesGlob: pipelines/**
+    - name: jcantosz/cf-pipeline-factory
+      type: git
+      repo: jcantosz/cf-pipeline-factory
+      events:
+        - push.heads
+      pullRequestAllowForkEvents: false
+      commentRegex: /.*/gi
+      branchRegex: /.*/gi
+      branchRegexInput: regex
+      modifiedFilesGlob: '{pipelines/**}'
+      provider: github
+      disabled: false
+      options:
+        noCache: false
+        noCfCache: false
+        resetVolume: false
+      verified: true
+      context: github-jesse
+      contexts: []
+      variables: []
   contexts: []
   specTemplate:
     location: git
-    context: github-jesse # if not specified will use the default git-context
     repo: jcantosz/cf-pipeline-factory
-    path: codefresh.yml
-    revision: main # can be a branch or commit. if not specified will use CF_BRANCH variable value
+    path: ./codefresh.yml
+    revision: main
+    context: github-jesse
   steps: {}
   stages: []
