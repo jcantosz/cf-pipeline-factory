@@ -24,7 +24,6 @@ spec:
     branchRegexInput: regex
     provider: github-jesse
     context: github-jesse
-    modifiedFilesGlob: pipelines/**
   variables:
     - key: SOMETHING
       value: else

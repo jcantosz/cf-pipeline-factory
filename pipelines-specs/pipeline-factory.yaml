@@ -15,7 +15,7 @@ spec:
   triggers:
   - type: git
     name: git-push
-    repo: jcantosz/cf-pipeline-factory.yaml
+    repo: jcantosz/cf-pipeline-factory
     events:
       - push.heads
     pullRequestAllowForkEvents: false
@@ -24,6 +24,7 @@ spec:
     branchRegexInput: regex
     provider: github-jesse
     context: github-jesse
+    modifiedFilesGlob: pipelines/**
   contexts: []
   specTemplate:
     location: git
