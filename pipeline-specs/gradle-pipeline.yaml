@@ -13,17 +13,24 @@ metadata:
     isTemplate: false
 spec:
   triggers:
-  - type: git
-    name: git-push
-    repo: jcantosz/gradle-sample-app
-    events:
-      - push.heads
-    pullRequestAllowForkEvents: false
-    commentRegex: /.*/gi
-    branchRegex: /.*/gi
-    branchRegexInput: regex
-    provider: github-jesse
-    context: github-jesse
+    - name: jcantosz/gradle-sample-app
+      type: git
+      repo: jcantosz/gradle-sample-app
+      events:
+        - push.heads
+      pullRequestAllowForkEvents: false
+      commentRegex: /.*/gi
+      branchRegex: /main/gi
+      branchRegexInput: regex
+      provider: github
+      disabled: false
+      options:
+        noCache: false
+        noCfCache: false
+        resetVolume: false
+      context: github-jesse
+      contexts: []
+      variables: []
   variables:
     - key: SOMETHING
       value: else
